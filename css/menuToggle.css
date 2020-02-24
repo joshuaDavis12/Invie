@@ -8,9 +8,9 @@ body
   font-family: 'Allerta', sans-serif;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
 .is-active {
-    opacity: 0;
+  opacity: 0;
 }
 
 #menuToggle

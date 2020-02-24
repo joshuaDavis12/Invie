@@ -30,24 +30,9 @@
     }
 }
 
-@media screen and (max-width: 768px) {
-  .portada {
-    height: 450px;
-    width: 100vw;
-  }
-  
-  .header figure {
-    margin-right: 15px;
-    position: absolute;
-    left: 73%;
-  }
-
-  .header figure img {
-    position: relative;
-    width: 120px;
-    height: 39px;
-    top: 5px;
-    right: 25%;
+@media screen and (max-width: 900px) {
+  #menuToggle ul {
+    right: 0;
   }
 
   .contenedor {
@@ -117,6 +102,27 @@
   .contenedor .formulario {
     position: relative;
     right: 55px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+    .portada {
+    height: 450px;
+    width: 100vw;
+  }
+  
+  .header figure {
+    margin-right: 15px;
+    position: absolute;
+    left: 73%;
+  }
+
+  .header figure img {
+    position: relative;
+    width: 120px;
+    height: 39px;
+    top: 5px;
+    right: 25%;
   }
 }
 
