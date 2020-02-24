@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Invie - tus mejores guitarras!!</title>
+    <meta charset="utf-8"/>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Allerta' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/invie.css"/>
+    <link rel="stylesheet" href="css/menuToggle.css">
+    <link rel="stylesheet" href="css/media.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <section id="portada" class="portada background"> <!-- portada -->
+
+      <header id="header" class="header contenedor"> <!-- header -->
+        <figure class="logotipo"> <!-- logotipo -->
+          <img src="images/invie.png" width="186" height="60" alt="Invie logotipo"/>
+        </figure>
+
+        <nav role="navigation">
+          <div id="menuToggle">
+            <!--
+            A fake / hidden checkbox is used as click reciever,
+            so you can use the :checked selector on it.
+            -->
+            <input id="check" type="checkbox">
+            
+            <!--
+            Some spans to act as a hamburger.
+            
+            They are acting like a real hamburger,
+            not that McDonalds stuff.
+            -->
+            <span></span>
+            <span></span>
+            <span></span>
+            
+            <!--
+            Too bad the menu has to be inside of the button
+            but hey, it's pure CSS magic.
+            -->
+            <ul id="menu" class="is-active">
+              <a onclick="aClick()" style="margin-top: 100px;" href="index.html"><li>Home</li></a>
+              <a onclick="aClick()" href="#guitarras"><li>Guitarras</li></a>
+              <a onclick="aClick()" href="precios.html"><li>Precios</li></a>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      
+      <div class="contenedor">
+        <div class="heroTitle">
+          <h1 class="titulo">Guitarras <span>invie</span>sibles</h1><!-- titulo -->
+          <h3 class="title-a">Sé la estrella de rock que siempre quisiste ser</h3><!-- resumen -->
+          <a class="button" href="#guitarras">Conoce mas</a><!-- boton -->
+        </div>
+      </div>
+    </section>
+
+    <section id="guitarras" class="guitarras contenedor"> <!-- guitarras -->
+      <h2>Nuestra guitarras</h2><!-- titulo -->
+
+      <article class="guitarra"> <!-- guitarra 1 -->
+        <img class="derecha" src="images/invie-acustica.png" alt="Guitarra Invie Acustica" width="350"/>
+        <div class="contenedor-guitarra-a">
+          <h3 class="title-b">Invie Acustica</h3>
+          <ol>
+            <li>Estilo vintage</li>
+            <li>Madera pura</li>
+            <li>Incluye estuche invisible de aluminio</li>
+          </ol>
+        </div>
+      </article>
+
+      <article class="guitarra b"> <!-- guitarra 2 -->
+        <img class="izquierda" src="images/invie-classic.png" alt="Guitarra Invie Classic" width="350"/>
+
+        <div class="contenedor-guitarra-b">
+          <h3 class="title-b">Invie Classic</h3>
+
+          <ol>
+            <li>Estilo vintage</li>
+            <li>Liviana</li>
+            <li>Inicia tu camino como Rockstar</li>
+          </ol>
+        </div>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <div class="contenedor">
+        <div class="contacto">
+          <img src="images/invie-white.png" alt="logotipo blanco"/>
+          <a href="tel:+573024456678"><strong>Telefono</strong> <span>3024456678</span></a>
+          <a href="mailto:contacto@invie.com"><strong>E-mail</strong> <span>contacto@invie.com</span></a>
+        </div>
+
+        <form class="formulario">
+          <div class="col1">
+            <label for="nombre">Nombre</label>
+            <input type="text" required id="nombre" name="nombre"/>
+            <label for="email">E-mail</label>
+            <input type="email" required id="email" name="email"/>
+
+            <div class="sexo">
+              <label for="mujer">
+                <input type="radio" id="mujer" checked name="sexo" value="mujer"> mujer
+              </label>
+              <label for="hombre">
+                <input type="radio" id="hombre" name="sexo" value="hombre"> hombre
+              </label>
+            </div>
+
+            <div class="intereses">
+              <label for="cotizacion">
+                <input type="checkbox" checked id="cotizacion" name="intereses" value="cotizacion"> Cotización
+              </label>
+              <label for="reclamos">
+                <input type="checkbox" id="reclamos" name="intereses" value="reclamos"> Reclamos
+              </label>
+              <label for="comentario">
+                <input type="checkbox" id="comentario" name="intereses" value="comantarios"> Comentario
+              </label>
+              <label for="otros">
+                <input type="checkbox" id="otros" name="intereses" value="otros"> Otros
+              </label>
+            </div>
+          </div>
+
+          <div class="col2">
+            <label for="comentarios">Comentarios</label>
+            <textarea name="comantarios" id="comentarios" cols="30" rows="7"></textarea>
+            <input type="submit" value="Enviar" class="button"/>
+          </div>
+        </form>
+      </div>
+    </footer>
+
+    <script>
+      const check = document.getElementById('check');
+      const ipad = window.matchMedia('screen and (max-width: 767px)')
+      const menu = document.getElementById('menu');
+
+      ipad.addListener(validation);
+
+      function validation(event) {
+        if (event.matches) {
+        check.addEventListener('click', isChecked)
+        } else {
+        check.removeEventListener('click', isChecked)
+        }
+      }
+
+      check.addEventListener('click', consLog())
+
+      validation(ipad); 
+
+      function isChecked() {
+        if (menu.classList.contains('is-active')) {
+          menu.classList.remove('is-active')
+        } else {
+          setTimeout(function() {
+            menu.classList.add('is-active')
+          }, 300)
+        }
+      }
+
+      function aClick() {
+        check.checked = false;
+      }
+
+      function consLog() {
+        console.log(menu)
+      }
+    </script>
+  </body>
+</html>

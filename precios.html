@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Precios de tus mejores guitarras!!</title>
+    <meta charset="utf-8"/>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Allerta' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/invie.css"/>
+    <link rel="stylesheet" href="css/menuToggle.css">
+    <link rel="stylesheet" href="css/media.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+      #header {
+        background-color: #273b47;
+        width: 100% !important;
+        height: 100px;
+        margin-bottom: 40px !important; 
+        margin-left: 0px !important;
+      }
+
+      #menu {
+        right: 18% !important;
+      }
+
+      .logotipo {
+        margin-left: 30% !important;
+      }
+
+      #menuToggle {
+        right: 180px;
+      }
+
+      .tabla .contenedor {
+        width: 35%;
+        align-self: center;
+        justify-content: center;
+        display: block;
+        margin: 40px auto;
+      }
+
+
+      @media screen and (max-width: 767px) {
+        #menuToggle {
+          left: 50px;
+        }
+
+        #menuToggle ul {
+          right: 25px;
+        }
+
+        #menuToggle a {
+          margin-left: 25%;
+        }
+
+        #header {
+          width: 100% !important;
+          height: 80px;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        #menuToggle a {
+          margin-left: 35%;
+        }
+      }
+
+      @media screen and (max-width: 320px) {
+        #menuToggle {
+          left: 65px;
+        }
+
+        .header figure img {
+          right: 0;
+        }
+
+        table {
+          font-size: 13px;
+        }
+
+        .tabla .contenedor {
+          display: block;
+          margin: 40px auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header" class="header contenedor"> <!-- header -->
+      <figure class="logotipo"> <!-- logotipo -->
+        <img src="images/invie.png" width="186" height="60" alt="Invie logotipo"/>
+      </figure>
+
+      <nav role="navigation">
+        <div id="menuToggle">
+          <!--
+          A fake / hidden checkbox is used as click reciever,
+          so you can use the :checked selector on it.
+          -->
+          <input id="check" type="checkbox">
+          
+          <!--
+          Some spans to act as a hamburger.
+          
+          They are acting like a real hamburger,
+          not that McDonalds stuff.
+          -->
+          <span></span>
+          <span></span>
+          <span></span>
+          
+          <!--
+          Too bad the menu has to be inside of the button
+          but hey, it's pure CSS magic.
+          -->
+          <ul id="menu" class="is-active">
+            <a onclick="aClick()" style="margin-top: 100px;" href="index.html"><li>Home</li></a>
+            <a onclick="aClick()" href="#guitarras"><li>Guitarras</li></a>
+            <a onclick="aClick()" href="precios.html"><li>Precios</li></a>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <section class="tabla">
+      <div class="contenedor" style="overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Modelo</th>
+              <th>Precio</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Invie classic</td>
+              <td>$100000</td>
+              <td>Una guitarra muy pro</td>
+            </tr>
+            <tr>
+              <td>Invie classic</td>
+              <td>$100000</td>
+              <td>Una guitarra muy pro</td>
+            </tr>
+            <tr>
+              <td>Invie classic</td>
+              <td>$100000</td>
+              <td>Una guitarra muy pro</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="contenedor">
+        <div class="contacto">
+          <img src="images/invie-white.png" alt="logotipo blanco"/>
+          <a href="tel:+573024456678"><strong>Telefono</strong> <span>3024456678</span></a>
+          <a href="mailto:contacto@invie.com"><strong>E-mail</strong> <span>contacto@invie.com</span></a>
+        </div>
+        <form class="formulario">
+          <div class="col1">
+            <label for="nombre">Nombre</label>
+            <input type="text" required id="nombre" name="nombre"/>
+            <label for="email">E-mail</label>
+            <input type="email" required id="email" name="email"/>
+            <div class="sexo">
+              <label for="mujer">
+                <input type="radio" id="mujer" checked name="sexo" value="mujer"> mujer
+              </label>
+              <label for="hombre">
+                <input type="radio" id="hombre" name="sexo" value="hombre"> hombre
+              </label>
+            </div>
+            <div class="intereses">
+              <label for="cotizacion">
+                <input type="checkbox" checked id="cotizacion" name="intereses" value="cotizacion"> Cotización
+              </label>
+              <label for="reclamos">
+                <input type="checkbox" id="reclamos" name="intereses" value="reclamos"> Reclamos
+              </label>
+              <label for="comentarios">
+                <input type="checkbox" id="comentarios" name="intereses" value="comantarios"> Comentarios
+              </label>
+              <label for="otros">
+                <input type="checkbox" id="otros" name="intereses" value="otros"> Otros
+              </label>
+            </div>
+          </div>
+          <div class="col2">
+            <label for="comentarios">Comentarios</label>
+            <textarea name="comantarios" id="comentarios" cols="30" rows="7"></textarea>
+            <input type="submit" value="Enviar" class="button"/>
+          </div>
+        </form>
+      </div>
+    </footer>
+
+    <script>
+      const check = document.getElementById('check');
+      const ipad = window.matchMedia('screen and (max-width: 767px)')
+      const menu = document.getElementById('menu');
+
+      ipad.addListener(validation);
+
+      function validation(event) {
+        if (event.matches) {
+        check.addEventListener('click', isChecked)
+        } else {
+        check.removeEventListener('click', isChecked)
+        }
+      }
+
+      check.addEventListener('click', consLog())
+
+      validation(ipad); 
+
+      function isChecked() {
+        if (menu.classList.contains('is-active')) {
+          menu.classList.remove('is-active')
+        } else {
+          setTimeout(function() {
+            menu.classList.add('is-active')
+          }, 300)
+        }
+      }
+
+      function aClick() {
+        check.checked = false;
+      }
+
+      function consLog() {
+        console.log(menu)
+      }
+    </script>
+  </body>
+</html>
